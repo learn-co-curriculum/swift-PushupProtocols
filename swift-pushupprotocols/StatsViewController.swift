@@ -1,7 +1,7 @@
 //  StatsViewController.swift
 import UIKit
 
-class StatsViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, WorkoutProtocol {
+class StatsViewController: UIViewController, UITableViewDataSource, UITableViewDelegate{
     
     @IBOutlet weak var totalNumberOfRepsLabel: UILabel!
     @IBOutlet weak var totalNumberOfSetsLabel: UILabel!
@@ -14,17 +14,6 @@ class StatsViewController: UIViewController, UITableViewDataSource, UITableViewD
 
     var workouts = [FISWorkout]()
 
-  
-    func addNewWorkout(workout: FISWorkout){
-        self.workouts.append(workout)
-        self.updateUI()
-        self.dismissViewControllerAnimated(true, completion: nil)
-    }
-    
-    func cancel(){
-        self.dismissViewControllerAnimated(true, completion: nil)
-    }
-    
     
     func updateUI(){
         var totalReps = 0
@@ -83,9 +72,6 @@ class StatsViewController: UIViewController, UITableViewDataSource, UITableViewD
 
     // MARK: - Navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        let addEntryViewController = segue.destinationViewController as? AddEntryViewController
-        if let viewController = addEntryViewController {
-            viewController.delegate = self
-        }
+
     }
 }

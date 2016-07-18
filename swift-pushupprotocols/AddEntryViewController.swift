@@ -4,16 +4,6 @@
 
 import UIKit
 
-protocol WorkoutProtocol{
-    func addNewWorkout(workout: FISWorkout)
-    func cancel()
-    
-}
-protocol ExerciseProtocol {
-    func addNewExercise(exercise: FISExercise)
-    func cancel()
-}
-
 
 class AddEntryViewController: UIViewController, UITextFieldDelegate, UITableViewDataSource, UITableViewDelegate{
     
@@ -24,8 +14,6 @@ class AddEntryViewController: UIViewController, UITextFieldDelegate, UITableView
     @IBOutlet weak var datePicker: UIDatePicker!
     var exercises = [FISExercise]()
     
-    var delegate:WorkoutProtocol?
-
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -45,24 +33,6 @@ class AddEntryViewController: UIViewController, UITextFieldDelegate, UITableView
         return true
     }
 
-    
-    @IBAction func saveWorkoutTapped(sender: AnyObject) {
-        var date = self.datePicker.date
-        var exercise = self.exercises[self.exerciseTableView.indexPathForSelectedRow!.row]
-        var workout = FISWorkout(timestamp: self.datePicker.date, reps: Int(self.numberOfRepsTextField.text!)!, sets: Int(self.numberOfSetsTextField.text!)!, numberOfWorkoutBuddies: Int(self.numberOfStudentsTextField.text!)!, exercise: exercise)
-        
-        if let delegate = self.delegate {
-            delegate.addNewWorkout(workout)
-            delegate.cancel()
-        }else{
-            print("doesn't exist")
-        }
-    }
-    
-
-    @IBAction func cancelTapped(sender: AnyObject) {
-        self.dismissViewControllerAnimated(true, completion: nil)
-    }
     
     func setupExerciseList(){
         let pushups = FISExercise(name: "Pushups")

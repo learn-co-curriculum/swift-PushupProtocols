@@ -1,0 +1,6 @@
+framework module Pods_swift_pushupprotocolsTests {
+  umbrella header "Pods-swift-pushupprotocolsTests-umbrella.h"
+
+  export *
+  module * { export * }
+}
