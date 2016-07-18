@@ -1,9 +1,28 @@
 //
 //  FISWorkout.swift
-//  swift-pushupprotocols
-//
-//  Created by Johann Kerr on 7/10/16.
-//  Copyright © 2016 Johann Kerr. All rights reserved.
-//
+
 
 import Foundation
+
+class FISWorkout {
+    var timestamp: NSDate!
+    var reps: Int
+    var sets: Int
+    var numberOfWorkoutBuddies:Int
+    
+    var computedData: NSDate!
+    var exercise: FISExercise!
+    
+    init(timestamp: NSDate, reps: Int, sets: Int, numberOfWorkoutBuddies: Int, exercise: FISExercise ){
+        self.timestamp = timestamp
+        self.reps = reps
+        self.sets = sets
+        self.numberOfWorkoutBuddies = numberOfWorkoutBuddies
+        self.exercise = exercise
+        
+    }
+    
+    
+}
+
+
