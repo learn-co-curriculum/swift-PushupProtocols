@@ -11,8 +11,14 @@ Pushup Protocols
 
 ## Instructions
 
-- Add a custom protocol and delegate to get stats for a new exercise log entry to the `StatsViewController` from the `AddEntryViewController`.
-- Use segue delegate methods to pass data forward to each view controller from prior view controllers.
+* Run the app. You will be presented with a screen listing the # of Sets, Reps, Flatironers, etc. If you click the '+' button in the navigation bar, a new screen appears!
+* This second view allows you to enter in the Number of reps, sets & Flatironers participating. But.. you'll notice that if you go to hit the "Save Workout" button in the lower-right side, nothing happens. This is where **you** come in!
+* Lets call our first View Controller A and our second View Controller B.  
+As it stands we have A --> B relationship in that we could send info forward in the `prepareForSegue(_:sender:)` method. But how can we go from B --> A? There are multiple ways to do this, for this lab you will implement this B --> A through the use of **Protocols** & **Delegates**. 
+
+- Add a custom protocol and delegate to get stats for a new exercise log entry to the `StatsViewController` (A) from the `AddEntryViewController` (B).
+* In the `prepareForSegue(_:sender:)` method on the `StatsViewController` (A), we need to establish a connection to the `AddEntryViewController` (B) - how can we do that? Hint: Think of this as a parent-child relationship, if (A) is the parent looking to respond to (B) crying out, (A) needs to be the delegate of (B).
+
 - Attach the `UIButtons` from our storyboard to their associated controllers for use as `IBAction`s, and then write the code to make them work.
 
 - No tests for this one,  but if you want to do it correctly, you will not use unwind segues, NSNotificationCenter, or blocks to pass data around (to the extent you are already familiar with some or all of these methods.) You will also not have any singleton objects in your program.
