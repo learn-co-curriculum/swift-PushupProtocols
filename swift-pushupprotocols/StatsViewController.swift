@@ -35,43 +35,43 @@ class StatsViewController: UIViewController, UITableViewDataSource, UITableViewD
         tableView.tableFooterView = UIView()
     }
     
-    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+    func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
 
     
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("cell", forIndexPath: indexPath)
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
       
-        let totalReps = self.workouts[indexPath.row].sets*self.workouts[indexPath.row].reps
-        cell.textLabel!.text = "\(self.workouts[indexPath.row].exercise.name) - \(totalReps) Reps"
+        let totalReps = self.workouts[(indexPath as NSIndexPath).row].sets*self.workouts[(indexPath as NSIndexPath).row].reps
+        cell.textLabel!.text = "\(self.workouts[(indexPath as NSIndexPath).row].exercise.name) - \(totalReps) Reps"
         
         
         return cell
     }
     
     
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return self.workouts.count
     }
-    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        updateUIForWorkout(self.workouts[indexPath.row])
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        updateUIForWorkout(self.workouts[(indexPath as NSIndexPath).row])
     }
     
-    func updateUIForWorkout(workout:FISWorkout){
+    func updateUIForWorkout(_ workout:FISWorkout){
         self.totalNumberOfRepsLabel.text = String(workout.reps)
         self.totalNumberOfSetsLabel.text = String(workout.sets)
         self.totalNumberOfFlatironersLabel.text = String(workout.numberOfWorkoutBuddies)
-        let dateFormatter = NSDateFormatter()
-        dateFormatter.dateStyle = NSDateFormatterStyle.ShortStyle
-        dateFormatter.timeStyle = NSDateFormatterStyle.ShortStyle
-        let strDate = dateFormatter.stringFromDate(workout.timestamp)
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateStyle = DateFormatter.Style.short
+        dateFormatter.timeStyle = DateFormatter.Style.short
+        let strDate = dateFormatter.string(from: workout.timestamp as Date)
         self.dateLabel.text = strDate
     }
 
 
     // MARK: - Navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
 
     }
 }

@@ -28,7 +28,7 @@ class AddEntryViewController: UIViewController, UITextFieldDelegate, UITableView
         self.exerciseTableView.reloadData()
     }
     
-    func textFieldShouldReturn(textField: UITextField) -> Bool {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
         return true
     }
@@ -48,12 +48,12 @@ class AddEntryViewController: UIViewController, UITextFieldDelegate, UITableView
     }
     
     
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cellIdentifier = "exerciseCell"
 
-        let cell = tableView.dequeueReusableCellWithIdentifier(cellIdentifier, forIndexPath: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath)
         
-        let exercise = self.exercises[indexPath.row]
+        let exercise = self.exercises[(indexPath as NSIndexPath).row]
         cell.textLabel!.text = exercise.name
         
         
@@ -61,17 +61,17 @@ class AddEntryViewController: UIViewController, UITextFieldDelegate, UITableView
         
     }
     
-    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+    func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
     
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return self.exercises.count
     }
     
     
 
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
     }
    

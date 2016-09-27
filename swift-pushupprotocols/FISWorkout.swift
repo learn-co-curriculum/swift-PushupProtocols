@@ -5,15 +5,15 @@
 import Foundation
 
 class FISWorkout {
-    var timestamp: NSDate!
+    var timestamp: Date!
     var reps: Int
     var sets: Int
     var numberOfWorkoutBuddies:Int
     
-    var computedData: NSDate!
+    var computedData: Date!
     var exercise: FISExercise!
     
-    init(timestamp: NSDate, reps: Int, sets: Int, numberOfWorkoutBuddies: Int, exercise: FISExercise ){
+    init(timestamp: Date, reps: Int, sets: Int, numberOfWorkoutBuddies: Int, exercise: FISExercise ){
         self.timestamp = timestamp
         self.reps = reps
         self.sets = sets
