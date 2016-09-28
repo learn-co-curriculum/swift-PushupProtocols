@@ -8,8 +8,16 @@ target 'swift-pushupprotocols' do
 
   target 'swift-pushupprotocolsTests' do
     inherit! :search_paths
-    pod 'Quick'
-    pod 'Nimble'
+   pod 'Nimble', git: 'https://github.com/Quick/Nimble.git'
+pod 'Quick', git: 'https://github.com/Quick/Quick.git'
   end
 
+end
+
+post_install do |installer|
+    installer.pods_project.targets.each do |target|
+        target.build_configurations.each do |config|
+            config.build_settings['SWIFT_VERSION'] = '3.0'
+        end
+    end
 end

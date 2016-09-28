@@ -44,7 +44,7 @@ class StatsViewController: UIViewController, UITableViewDataSource, UITableViewD
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
       
         let totalReps = self.workouts[(indexPath as NSIndexPath).row].sets*self.workouts[(indexPath as NSIndexPath).row].reps
-        cell.textLabel!.text = "\(self.workouts[(indexPath as NSIndexPath).row].exercise.name) - \(totalReps) Reps"
+//        cell.textLabel!.text = "\(self.workouts[(indexPath as NSIndexPath).row].exercise.name) - \(totalReps) Reps"
         
         
         return cell

@@ -35,15 +35,15 @@ class AddEntryViewController: UIViewController, UITextFieldDelegate, UITableView
 
     
     func setupExerciseList(){
-        let pushups = FISExercise(name: "Pushups")
-        pushups.muscleGroups = ["Pectorals", "Latissimus Dorsi"]
-        let situps = FISExercise(name: "Situps")
-        situps.muscleGroups = ["Abs"]
-        let pullups = FISExercise(name: "Pullups")
-        pullups.muscleGroups = ["Arms", "Back"]
-        self.exercises.append(pushups)
-        self.exercises.append(situps)
-        self.exercises.append(pullups)
+//        let pushups = FISExercise(name: "Pushups")
+//        pushups.muscleGroups = ["Pectorals", "Latissimus Dorsi"]
+//        let situps = FISExercise(name: "Situps")
+//        situps.muscleGroups = ["Abs"]
+//        let pullups = FISExercise(name: "Pullups")
+//        pullups.muscleGroups = ["Arms", "Back"]
+//        self.exercises.append(pushups)
+//        self.exercises.append(situps)
+//        self.exercises.append(pullups)
  
     }
     
@@ -54,7 +54,7 @@ class AddEntryViewController: UIViewController, UITextFieldDelegate, UITableView
         let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath)
         
         let exercise = self.exercises[(indexPath as NSIndexPath).row]
-        cell.textLabel!.text = exercise.name
+//        cell.textLabel!.text = exercise.name
         
         
         return cell
